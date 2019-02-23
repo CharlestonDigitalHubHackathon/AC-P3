@@ -4,11 +4,13 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.UUID;
+
 @Data
 @Document
-public class Item {
+public class RewardItem {
     @Id
-    String itemId;
-    String itemName;
-    String type;
+    UUID uuid;
+    String title;
+    Integer cost;
 }
