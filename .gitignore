@@ -15,3 +15,9 @@ target/
 src/.DS_Store
 src/main/.DS_Store
 src/main/resources/.DS_Store
+GlobalLandTemperaturesByCity.csv
+.factorypath
+.idea/httpRequests/http-requests-log.http
+.idea/httpRequests/2019-02-23T122100.405.json
+.idea/httpRequests/2019-02-23T122439.405.json
+.idea/httpRequests/2019-02-23T122822.405.json
