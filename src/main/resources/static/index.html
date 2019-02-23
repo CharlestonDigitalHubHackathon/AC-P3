@@ -1,0 +1,51 @@
+<html>
+	<head>
+		<link rel="stylesheet" href="./index.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+          $( ".continueToNextPane" ).click(function() {
+            alert( "Handler for .click() called." );
+          });
+
+			$(".continueToNextPane").on('click',function(element) {
+			  console.log("help")
+			  let nextPane = $(element).attr("nextPane");
+			  $(".pane").addClass('hidden');
+			  $("#"+nextPane).addClass('frontPane');
+            });
+		</script>
+	</head>
+	<body>
+		<div id="welcome" class="pane">
+			<p>Scan into a whole new world!</p>
+			<div class="continueToNextPane" nextPane="register">
+				<i class="fas fa-arrow-right"></i>
+			</div>
+		</div>
+		<div id="register" class="pane">
+			<div style = "text-align: center; vertical-align: middle;">
+				<label>Enter your phone number:</label>
+				<input type = "phone number" id="signUpNumber" />
+			</div>
+			<div id="registerButton" class="button">
+			</div>
+			<div class="continueToNextPane">
+				<i class="fas fa-arrow-right"></i>
+			</div>
+		</div>
+		<div id="scanner" class="pane">
+
+		</div>
+		<div id="history" class="pane">
+			<div class="listCenterer">
+			</div>
+			<div class="continueToNextPane"></div>
+		</div>
+		<div id="rewards" class="pane">
+			<div class="listCenterer">
+			</div>
+			<div class="continueToNextPane"></div>
+		</div>
+	</body>
+</html>

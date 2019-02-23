@@ -1,0 +1,49 @@
+#welcome{
+    z-index: 1;
+    background: #0083fa;
+}
+
+#welcome p {
+    text-align: center;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 30%;
+    font-size: 24pt;
+    font-family: sans-serif;
+    color: #FFF;
+}
+
+#register{
+    background: #00b270;
+}
+
+#scanner{
+    background: #009327;
+}
+
+#history{
+    background: #99b400;
+}
+
+#rewards{
+    background: #9db50c;
+}
+
+.pane{
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    left: 0%;
+    top: 0%;
+    height: 100%;
+}
+
+.continueToNextPane{
+    bottom: 0%;
+    right: 0%;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    font-size: 35pt;
+    color: white;
+}

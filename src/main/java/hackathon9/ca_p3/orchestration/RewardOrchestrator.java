@@ -12,7 +12,7 @@ import java.util.UUID;
 @Component
 public class RewardOrchestrator {
 
-    final RewardRepository rewardRepository;
+    private final RewardRepository rewardRepository;
 
     @Autowired
     public RewardOrchestrator(RewardRepository rewardRepository) {
