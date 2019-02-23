@@ -1,12 +1,14 @@
 package hackathon9.ca_p3.controllers;
 
-import hackathon9.ca_p3.models.ScannedItem;
+import hackathon9.ca_p3.models.Item;
 import hackathon9.ca_p3.orchestration.ScannerOrchestrator;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CookieValue;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 public class UserHistoryController {
@@ -18,7 +20,8 @@ public class UserHistoryController {
         this.scannerOrchestrator = scannerOrchestrator;
     }
 
-    List<ScannedItem> getScannedItemsByUser(String userId){
+    @GetMapping(value = "/getUserHistory")
+    List<Item> getScannedItemsByUser(@CookieValue("userId") UUID userId) {
         return scannerOrchestrator.listScannedItemsByUser(userId);
     }
 }

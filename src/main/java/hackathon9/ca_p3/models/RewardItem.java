@@ -4,15 +4,13 @@ import lombok.Data;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-import java.util.Date;
 import java.util.UUID;
 
 @Data
 @Document
-public class ScannedItem {
+public class RewardItem {
     @Id
     UUID uuid;
-    UUID userId;
-    String barcodeIdentifier;
-    Date scannedDate;
+    String title;
+    Integer cost;
 }
