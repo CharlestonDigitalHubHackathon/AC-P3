@@ -38,6 +38,18 @@
     height: 100%;
 }
 
+.hidden{
+    display: none;
+}
+
+#scanner-container{
+    width: 500px;
+    height: 400px;
+    top: 0px;
+    left: 0px;
+    margin: 0px auto;
+}
+
 .continueToNextPane{
     bottom: 0%;
     right: 0%;

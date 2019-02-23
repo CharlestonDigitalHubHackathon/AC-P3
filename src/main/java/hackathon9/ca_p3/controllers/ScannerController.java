@@ -31,7 +31,7 @@ public class ScannerController {
         return scannerOrchestrator.getItem(itemId);
     }
 
-    @PostMapping(value = "scanItem/{itemId}")
+    @GetMapping(value = "scanItem/{itemId}")
     public void scanItem(@PathVariable String itemId, @CookieValue("userId") UUID userId) {
         scannerOrchestrator.saveScannedItem(userId, itemId);
     }
