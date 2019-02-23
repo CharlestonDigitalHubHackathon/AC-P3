@@ -1,6 +1,5 @@
 package hackathon9.ca_p3.controllers;
 
-import hackathon9.ca_p3.models.BarcodeInformation;
 import hackathon9.ca_p3.models.Item;
 import hackathon9.ca_p3.orchestration.ScannerOrchestrator;
 import org.springframework.beans.factory.annotation.Autowired;

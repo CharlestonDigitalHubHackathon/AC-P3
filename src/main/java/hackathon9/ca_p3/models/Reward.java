@@ -8,5 +8,5 @@ import java.util.UUID;
 public class Reward {
     @Id
     UUID userId;
-    Integer pointTotal;
+    int pointTotal;
 }
