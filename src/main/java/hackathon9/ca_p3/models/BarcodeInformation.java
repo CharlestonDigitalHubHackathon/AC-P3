@@ -3,5 +3,5 @@ import lombok.Data;
 
 @Data
 public class BarcodeInformation {
-
+    String identifier;
 }
