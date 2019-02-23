@@ -8,8 +8,6 @@ import hackathon9.ca_p3.repository.CityTempRepository;
 import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
 
 @RestController
 public class CityTempController {
@@ -20,7 +18,7 @@ public class CityTempController {
   }
 
   @GetMapping(value="cityTemp/")
-  public List<CityTemp> getMethodName(@RequestParam String param) {
+  public List<CityTemp> getMethodName() {
       return cityTempRepository.findAll();
   }
   
