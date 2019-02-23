@@ -59,3 +59,10 @@
     font-size: 35pt;
     color: white;
 }
+
+.listCenterer p{
+    color:white;
+    font-size: 24pt;
+    padding-left: 20%;
+    padding-right: 20%;
+}

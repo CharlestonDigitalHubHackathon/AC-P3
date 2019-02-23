@@ -2,12 +2,10 @@ $(document).ready(function() {
   $(".continueToNextPane").on('click',function(element) {
     var nextPane = $(element.currentTarget).attr("nextPane");
 
-
     if(nextPane === 'scanner'){
       $.ajax(
           {url: "./register",
             success: function(result){
-              console.log(result);
               startAndStopScanner()
             }
           }
@@ -16,7 +14,13 @@ $(document).ready(function() {
     }else if(nextPane === 'history'){
 
     }else if(nextPane === 'rewards'){
-
+      $.ajax(
+          {url: "./cityTemp/Charleston",
+            success: function(result){
+              console.log(result)
+            }
+          }
+      );
     }
 
     $(".pane").addClass('hidden');
@@ -115,12 +119,21 @@ function startScanner() {
       $.ajax(
           {url: "./scanItem/"+scannedBarCode,
             success: function(result){
-
+              let list;
 
               $.ajax(
                   {url: "./getUserHistory",
                     success: function(result){
-                      console.log(result);
+                      $("#listCenterer").innerHTML = "";
+                      let values = result;
+
+                      var options = {
+                        valueNames: [ 'itemName', 'type' ],
+                        item: '<li><h3 class="itemName"></h3><p class="type"></p><p>Points: 1</p></li>'
+                      };
+
+                      var hackerList = new List('listCenterer', options, values);
+
                     }
                   }
               );
@@ -137,6 +150,5 @@ function startScanner() {
 }
 
 function startAndStopScanner() {
-  console.log("starting scanner ")
       startScanner();
 }
