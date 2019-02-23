@@ -2,6 +2,5 @@
 
 brew install mongodb
 
-mongoimport -c ca_p3 --type csv --file GlobalTemperatures.csv --headerline
-
-mongo
+mongoimport -c global_temp --type csv --file GlobalTemperatures.csv --headerline
+mongoimport -c city_temp --type csv --file GlobalLandTemperaturesByCity.csv --headerline
