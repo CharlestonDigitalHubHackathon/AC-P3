@@ -20,7 +20,7 @@ public class CityTempController {
 
   @GetMapping(value="cityTemp/{city}")
   public CityTemp getCity(@PathVariable String city) {
-      return cityTempRepository.findByCity(city).get(0);
+      return cityTempRepository.findByCityLatest(city);
   }
   
 }
