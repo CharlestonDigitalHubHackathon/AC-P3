@@ -1,8 +1,11 @@
+let detected = false;
+
 $(document).ready(function() {
   $(".continueToNextPane").on('click',function(element) {
     var nextPane = $(element.currentTarget).attr("nextPane");
 
     if(nextPane === 'scanner'){
+      detected = false;
       $.ajax(
           {url: "./register",
             success: function(result){
@@ -15,9 +18,9 @@ $(document).ready(function() {
 
     }else if(nextPane === 'rewards'){
       $.ajax(
-          {url: "./cityTemp/Charleston",
+          {url: "./cityTemp/Chicago",
             success: function(result){
-              console.log(result)
+              $("#temperature").html(result.averageTemperature + " C");
             }
           }
       );
@@ -112,41 +115,46 @@ function startScanner() {
   Quagga.onDetected(function (result) {
 
     var scannedBarCode = result.codeResult.code;
-    console.log("Barcode detected and processed : [" + scannedBarCode + "]", result);
-    if(scannedBarCode.length > 11){
-      // _scannerIsRunning = false;
-      Quagga.stop();
-      $.ajax(
-          {url: "./scanItem/"+scannedBarCode,
-            success: function(result){
-              let list;
+    if(!detected) {
+      if (scannedBarCode.length > 11) {
+        detected = true;
+        // _scannerIsRunning = false;
+        Quagga.stop();
+        $.ajax(
+            {
+              url: "./scanItem/" + scannedBarCode,
+              success: function(result) {
+                let list;
 
-              $.ajax(
-                  {url: "./getUserHistory",
-                    success: function(result){
-                      $("#listCenterer").innerHTML = "";
-                      let values = result;
+                $.ajax(
+                    {
+                      url: "./getUserHistory",
+                      success: function(result) {
+                        $("#userHistoryList").innerHTML = "";
+                        let values = result;
 
-                      var options = {
-                        valueNames: [ 'itemName', 'type' ],
-                        item: '<li><h3 class="itemName"></h3><p class="type"></p><p>Points: 1</p></li>'
-                      };
+                        var options = {
+                          valueNames: ['itemName', 'type'],
+                          item: '<li><h3 class="itemName"></h3><p class="type"></p><p>Points: 1</p></li>'
+                        };
 
-                      var hackerList = new List('listCenterer', options, values);
+                        var hackerList = new List('userHistoryList', options,
+                            values);
 
+                      }
                     }
-                  }
-              );
+                );
 
-
-              $(".pane").addClass('hidden');
-              $("#history").addClass('frontPane');
-              $("#history").removeClass('hidden');
+                $(".pane").addClass('hidden');
+                $("#history").addClass('frontPane');
+                $("#history").removeClass('hidden');
+              }
             }
-          }
-      );
+        );
+      }
     }
   });
+
 }
 
 function startAndStopScanner() {

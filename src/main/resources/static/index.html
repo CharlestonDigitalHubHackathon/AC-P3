@@ -25,9 +25,17 @@
 			</div>
 		</div>
 		<div id="register" class="pane">
-			<div style = "text-align: center; vertical-align: middle;">
-				<label>Enter your phone number:</label>
-				<input type = "phone number" id="signUpNumber" />
+			<div class="wrapper fadeInDown">
+				<div id="formContent">
+					<div class="fadeIn first">
+						<img src="./login_image.jpg" id="icon" alt="User Icon" />
+					</div>
+					<form >
+						<input type="text" id="login" class="fadeIn second" name="login" placeholder="User Name">
+						<input type="text" id="password" class="fadeIn third" name="login" placeholder="Password">
+						<input type="text" id="signUpNumber" class="fadeIn third" name="login" placeholder="Phone number">
+					</form>
+				</div>
 			</div>
 			<div class="continueToNextPane" nextPane="scanner">
 				<i class="fas fa-arrow-right"></i>
@@ -37,8 +45,8 @@
 			<div id="scanner-container"></div>
 		</div>
 		<div id="history" class="pane">
-			<div class="listCenterer">
-				<div id="listCenterer">
+			<div class="userHistoryList">
+				<div id="userHistoryList">
 					<ul class="list">
 					</ul>
 				</div>
